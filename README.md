@@ -1,22 +1,25 @@
-# Parses changelog based on my format
+# Changelog Parser
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rpungello/changelog-parser.svg?style=flat-square)](https://packagist.org/packages/rpungello/changelog-parser)
 [![Tests](https://img.shields.io/github/actions/workflow/status/rpungello/changelog-parser/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/rpungello/changelog-parser/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/rpungello/changelog-parser.svg?style=flat-square)](https://packagist.org/packages/rpungello/changelog-parser)
 
 This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/changelog-parser.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/changelog-parser)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
 ## Installation
 
-You can install the package via composer:
+You can install the package via composer, but first you need to add my composer repository to your composer.json file:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.rpun.dev"
+        }
+    ]
+}
+```
+
+Then you can install the package:
 
 ```bash
 composer require rpungello/changelog-parser
@@ -24,9 +27,11 @@ composer require rpungello/changelog-parser
 
 ## Usage
 
+Changelogs must be in the correct format for this package to parse them.
+Examples of this format can be found in the `tests/examples` directory.
+
 ```php
-$skeleton = new Rpungello\ChangelogParser();
-echo $skeleton->echoPhrase('Hello, Rpungello!');
+$changelog = \Rpungello\ChangelogParser\ChangelogParser::parseChangelog('/path/to/CHANGELOG.md');
 ```
 
 ## Testing
