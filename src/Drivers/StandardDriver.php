@@ -26,6 +26,7 @@ class StandardDriver extends Driver
                 continue;
             }
 
+            // Check if this line starts a new release
             if (preg_match('/^## (\d+\.\d+\.\d+) - (\d{4}-\d{2}-\d{2})$/', $line, $matches)) {
                 $changelog->addRelease(
                     $release = new Release($matches[1], DateTime::createFromFormat('Y-m-d', $matches[2]))
