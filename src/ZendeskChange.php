@@ -10,12 +10,15 @@ class ZendeskChange extends Change
 
     public string $zendeskDomain;
 
+    public string $zendeskUrl;
+
     public function __construct(string $text)
     {
         parent::__construct($text);
 
         $this->ticketNumber = $this->extractTicketNumber($text);
         $this->zendeskDomain = $this->extractZendeskDomain($text);
+        $this->zendeskUrl = "https://$this->zendeskDomain.zendesk.com/agent/tickets/$this->ticketNumber";
     }
 
     public static function appliesToChangeText(string $text): bool
