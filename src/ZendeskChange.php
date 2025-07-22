@@ -7,6 +7,7 @@ use InvalidArgumentException;
 class ZendeskChange extends Change
 {
     public int $ticketNumber;
+
     public string $zendeskDomain;
 
     public function __construct(string $text)
@@ -30,7 +31,7 @@ class ZendeskChange extends Change
     private function extractTicketNumber(string $text): int
     {
         if (preg_match('/\[(\d+)]/', $text, $matches)) {
-            return (int)$matches[1];
+            return (int) $matches[1];
         }
 
         throw new InvalidArgumentException('No ticket number found in the text.');

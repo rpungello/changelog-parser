@@ -18,7 +18,7 @@ class StandardDriver extends Driver
         }
 
         $fh = fopen($path, 'r');
-        $changelog = new Changelog();
+        $changelog = new Changelog;
         $release = null;
         while (($line = fgets($fh)) !== false) {
             $line = trim($line);

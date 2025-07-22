@@ -5,7 +5,7 @@ use Rpungello\ChangelogParser\ChangelogParser;
 use Rpungello\ChangelogParser\ZendeskChange;
 
 it('can parse standard changes', function () {
-    $changelog = ChangelogParser::parseChangelog(__DIR__ . '/examples/standard.md');
+    $changelog = ChangelogParser::parseChangelog(__DIR__.'/examples/standard.md');
     expect($changelog->releases)->toBeArray()->toHaveCount(1)
         ->and($changelog->releases[0]->version)->toBe('1.2.3')
         ->and($changelog->releases[0]->date->format('Y-m-d'))->toBe('2025-07-22')
@@ -17,7 +17,7 @@ it('can parse standard changes', function () {
 });
 
 it('can parse zendesk changes', function () {
-    $changelog = ChangelogParser::parseChangelog(__DIR__ . '/examples/zendesk.md');
+    $changelog = ChangelogParser::parseChangelog(__DIR__.'/examples/zendesk.md');
 
     expect($changelog->releases)->toBeArray()->toHaveCount(1)
         ->and($changelog->releases[0]->version)->toBe('1.2.3')
@@ -30,7 +30,7 @@ it('can parse zendesk changes', function () {
 });
 
 it('can parse mixed changes', function () {
-    $changelog = ChangelogParser::parseChangelog(__DIR__ . '/examples/mixed.md');
+    $changelog = ChangelogParser::parseChangelog(__DIR__.'/examples/mixed.md');
 
     expect($changelog->releases)->toBeArray()->toHaveCount(1)
         ->and($changelog->releases[0]->version)->toBe('1.2.3')
@@ -43,7 +43,7 @@ it('can parse mixed changes', function () {
 });
 
 it('can parse multiple releases', function () {
-    $changelog = ChangelogParser::parseChangelog(__DIR__ . '/examples/multiple.md');
+    $changelog = ChangelogParser::parseChangelog(__DIR__.'/examples/multiple.md');
 
     expect($changelog->releases)->toBeArray()->toHaveCount(2)
         ->and($changelog->releases[0]->version)->toBe('1.2.3')

@@ -4,9 +4,7 @@ namespace Rpungello\ChangelogParser;
 
 class Change
 {
-    public function __construct(public string $text)
-    {
-    }
+    public function __construct(public string $text) {}
 
     public static function appliesToChangeText(string $text): bool
     {
