@@ -2,7 +2,7 @@
 
 [![Tests](https://img.shields.io/github/actions/workflow/status/rpungello/changelog-parser/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/rpungello/changelog-parser/actions/workflows/run-tests.yml)
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+Parses markdown changelog files into a structured format, making it easy to display the information within a PHP application.
 
 ## Installation
 
