@@ -2,7 +2,9 @@
 
 namespace Rpungello\ChangelogParser;
 
-class Changelog
+use JsonSerializable;
+
+class Changelog implements JsonSerializable
 {
     /** @var Release[] */
     public array $releases = [];
@@ -10,5 +12,12 @@ class Changelog
     public function addRelease(Release $release): void
     {
         $this->releases[] = $release;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'releases' => $this->releases,
+        ];
     }
 }

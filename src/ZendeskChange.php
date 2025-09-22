@@ -31,6 +31,15 @@ class ZendeskChange extends Change
         return preg_replace('/.*\[\d+]\(https:\/\/\w+\.zendesk\.com\/agent\/tickets\/\d+\)\s?-\s?/', '', $this->text);
     }
 
+    public function jsonSerialize(): array
+    {
+        return array_merge(parent::jsonSerialize(), [
+            'ticket_number' => $this->ticketNumber,
+            'zendesk_domain' => $this->zendeskDomain,
+            'zendesk_url' => $this->zendeskUrl,
+        ]);
+    }
+
     private function extractTicketNumber(string $text): int
     {
         if (preg_match('/\[(\d+)]/', $text, $matches)) {

@@ -2,7 +2,9 @@
 
 namespace Rpungello\ChangelogParser;
 
-class Change
+use JsonSerializable;
+
+class Change implements JsonSerializable
 {
     public function __construct(public string $text) {}
 
@@ -14,5 +16,13 @@ class Change
     public function description(): string
     {
         return preg_replace('/^[\s-]+/', '', $this->text);
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'text' => $this->text,
+            'description' => $this->description(),
+        ];
     }
 }
