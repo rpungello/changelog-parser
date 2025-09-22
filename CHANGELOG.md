@@ -2,6 +2,10 @@
 
 All notable changes to `rpungello/changelog-parser` will be documented in this file.
 
+## 1.2.0 - 2025-09-22
+
+Add version filtering
+
 ## 1.1.0 - 2025-07-22
 
 Add Zendesk URL property
