@@ -2,6 +2,7 @@
 
 namespace Rpungello\ChangelogParser\Drivers;
 
+use Closure;
 use DateTime;
 use Rpungello\ChangelogParser\Change;
 use Rpungello\ChangelogParser\Changelog;
@@ -11,7 +12,7 @@ use RuntimeException;
 
 class StandardDriver extends Driver
 {
-    public function parseFile(string $path, ?string $afterVersion = null): Changelog
+    public function parseFile(string $path, ?Closure $stopParsing = null): Changelog
     {
         if (! file_exists($path) || ! is_readable($path)) {
             throw new RuntimeException("File at path '$path' does not exist or is not readable.");
@@ -28,7 +29,7 @@ class StandardDriver extends Driver
 
             // Check if this line starts a new release
             if (preg_match('/^## (\d+\.\d+\.\d+) - (\d{4}-\d{2}-\d{2})$/', $line, $matches)) {
-                if (! empty($afterVersion) && version_compare($afterVersion, $matches[1], '>=')) {
+                if (! is_null($stopParsing) && $stopParsing($matches[1])) {
                     return $changelog;
                 }
 
