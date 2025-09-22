@@ -6,7 +6,7 @@ use Rpungello\ChangelogParser\Release;
 use Rpungello\ChangelogParser\ZendeskChange;
 
 it('can format changelogs as JSON', function () {
-    $changelog = new Changelog();
+    $changelog = new Changelog;
     $release = new Release('1.2.3', new DateTimeImmutable('2025-01-01 00:00:00'));
     $release->addChange(new Change('Added feature ABC'));
     $release->addChange(new Change('Added feature DEF'));
@@ -16,7 +16,7 @@ it('can format changelogs as JSON', function () {
 });
 
 it('can format zendesk changelogs as JSON', function () {
-    $changelog = new Changelog();
+    $changelog = new Changelog;
     $release = new Release('1.2.3', new DateTimeImmutable('2025-01-01 00:00:00'));
     $release->addChange(new Change('Added feature ABC'));
     $release->addChange(new ZendeskChange('[1234](https://yourdomain.zendesk.com]) - Zendesk feature DEF'));
