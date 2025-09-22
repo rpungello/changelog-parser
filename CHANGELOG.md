@@ -2,6 +2,10 @@
 
 All notable changes to `rpungello/changelog-parser` will be documented in this file.
 
+## 1.3.0 - 2025-09-22
+
+Implement `JsonSerializable`
+
 ## 1.2.0 - 2025-09-22
 
 Add version filtering
