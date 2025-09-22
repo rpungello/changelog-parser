@@ -13,4 +13,11 @@ class ChangelogParser
 
         return $driver->parseFile($path);
     }
+
+    public static function parseChangelogAfter(string $path, ?string $afterVersion = null, ?Driver $driver = null): Changelog
+    {
+        $driver = $driver ?? new StandardDriver;
+
+        return $driver->parseFile($path, $afterVersion);
+    }
 }
