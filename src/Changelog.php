@@ -14,6 +14,24 @@ class Changelog implements JsonSerializable
         $this->releases[] = $release;
     }
 
+    public function newestRelease(): ?Release
+    {
+        if (empty($this->releases)) {
+            return null;
+        }
+
+        return $this->releases[0];
+    }
+
+    public function oldestRelease(): ?Release
+    {
+        if (empty($this->releases)) {
+            return null;
+        }
+
+        return $this->releases[count($this->releases) - 1];
+    }
+
     public function jsonSerialize(): array
     {
         return [
