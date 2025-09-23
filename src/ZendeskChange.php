@@ -30,8 +30,7 @@ class ZendeskChange extends Change
     /**
      * Determines if the given text applies to a Zendesk change.
      *
-     * @param string $text The text to check.
-     *
+     * @param  string  $text  The text to check.
      * @return bool True if it applies, false otherwise.
      */
     public static function appliesToChangeText(string $text): bool
@@ -66,8 +65,7 @@ class ZendeskChange extends Change
     /**
      * Extracts the ticket number from the change text.
      *
-     * @param string $text The change text to extract the ticket number from.
-     *
+     * @param  string  $text  The change text to extract the ticket number from.
      * @return int The extracted ticket number.
      *
      * @throws InvalidArgumentException if no ticket number is found in the text.
@@ -84,8 +82,7 @@ class ZendeskChange extends Change
     /**
      * Extracts the Zendesk domain from the change text.
      *
-     * @param string $text The change text to extract the Zendesk domain from.
-     *
+     * @param  string  $text  The change text to extract the Zendesk domain from.
      * @return string The extracted Zendesk domain.
      *
      * @throws InvalidArgumentException if no Zendesk domain is found in the text.

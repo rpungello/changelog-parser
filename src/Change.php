@@ -18,8 +18,7 @@ class Change implements JsonSerializable
     /**
      * Determines if the given text applies to change.
      *
-     * @param string $text The text to check.
-     *
+     * @param  string  $text  The text to check.
      * @return bool True if it applies, false otherwise.
      */
     public static function appliesToChangeText(string $text): bool

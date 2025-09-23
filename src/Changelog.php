@@ -23,9 +23,7 @@ class Changelog implements JsonSerializable
     /**
      * Adds a release to the changelog.
      *
-     * @param Release $release The release to add.
-     *
-     * @return void
+     * @param  Release  $release  The release to add.
      */
     public function addRelease(Release $release): void
     {

@@ -12,16 +12,15 @@ class Release implements JsonSerializable
      *
      * This class holds information about a specific release including its version,
      * date, and changes. It provides methods to add new changes to the release.
-     * @param Change[] $changes;
+     *
+     * @param  Change[]  $changes;
      */
     public function __construct(public string $version, public DateTimeInterface $date, public array $changes = []) {}
 
     /**
      * Adds a change to the release.
      *
-     * @param Change $change The change to add.
-     *
-     * @return void
+     * @param  Change  $change  The change to add.
      */
     public function addChange(Change $change): void
     {
