@@ -2,6 +2,10 @@
 
 All notable changes to `rpungello/changelog-parser` will be documented in this file.
 
+## 1.4.0 - 2025-09-23
+
+Added helper functions to get newest and oldest releases in a changelog
+
 ## 1.3.1 - 2025-09-23
 
 Auto-build repository
